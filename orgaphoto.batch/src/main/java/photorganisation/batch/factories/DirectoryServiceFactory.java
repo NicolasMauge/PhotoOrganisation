@@ -1,6 +1,6 @@
 package photorganisation.batch.factories;
 
-import photorganisation.application.directories.DirectoryService;
+import photorganisation.application.services.directories.DirectoryService;
 
 public class DirectoryServiceFactory {
     public static DirectoryService get() {
