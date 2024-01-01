@@ -1,4 +1,4 @@
-package photorganisation.application.directories;
+package photorganisation.application.services.directories;
 
 import photorganisation.domaine.entities.DirectoryEntity;
 import photorganisation.infrastructure.filesystem.IODirectory;
@@ -12,7 +12,7 @@ public class DirectoryService implements IDirectoryService {
 
 
     @Override
-    public DirectoryEntity listFilesFromDirectory(String directory) {
+    public DirectoryEntity createDirectoryEntityFromPath(String directory) {
         return IODirectory.getPhotosInDirectory(directory);
     }
 }

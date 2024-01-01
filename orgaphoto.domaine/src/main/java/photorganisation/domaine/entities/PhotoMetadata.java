@@ -1,22 +1,35 @@
 package photorganisation.domaine.entities;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class PhotoMetadata {
-	private LocalDate creationDate;
-
-	public PhotoMetadata(LocalDate creationDate) {
-		this.creationDate = creationDate;
-	}
+	private LocalDateTime creationDate;
+	private GPSCoordinate gpsCoordinate;
 
 	public PhotoMetadata() {
 	}
 
-	public LocalDate getCreationDate() {
+	public LocalDateTime getCreationDate() {
 		return creationDate;
 	}
 
-	public void setCreationDate(LocalDate creationDate) {
+	public void setCreationDate(LocalDateTime creationDate) {
 		this.creationDate = creationDate;
+	}
+
+	public GPSCoordinate getGpsCoordinate() {
+		return gpsCoordinate;
+	}
+
+	public void setGpsCoordinate(GPSCoordinate gpsCoordinate) {
+		this.gpsCoordinate = gpsCoordinate;
+	}
+
+	@Override
+	public String toString() {
+		return "PhotoMetadata{" +
+				"creationDate=" + creationDate +
+				", gpsCoordinate=" + gpsCoordinate +
+				'}';
 	}
 }

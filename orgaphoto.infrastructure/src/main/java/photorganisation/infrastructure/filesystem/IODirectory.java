@@ -3,6 +3,7 @@ package photorganisation.infrastructure.filesystem;
 import photorganisation.domaine.entities.DirectoryEntity;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public class IODirectory {
@@ -10,8 +11,13 @@ public class IODirectory {
     }
 
     public DirectoryEntity getPhotosInDirectory(String directory) {
+        File directoryFile = new File(directory);
+
+        File[] fileList = directoryFile.listFiles();
+
         return new DirectoryEntity(
+                directoryFile,
                 directory,
-                List.of(new File(directory).listFiles()));
+                fileList != null?List.of(fileList):new ArrayList<>());
     }
 }
