@@ -22,6 +22,11 @@ public class DateUtils {
 		return LocalDateTime.parse (dateInString, formatter);
 	}
 
+	public static String localDateTimeToString(LocalDateTime localDateTime) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
+		return localDateTime.format(formatter);
+	}
+
 	public static LocalDateTime fileTimeToLocalDateTime(FileTime fileTime) {
 		return LocalDateTime.ofInstant(fileTime.toInstant(), ZoneId.systemDefault());
 	}

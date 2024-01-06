@@ -29,9 +29,6 @@ public class MetadataFromPhoto {
 					.getDirectories()
 					.forEach(d -> d.getTags()
 							.forEach(tag -> {
-								// System.out.println("-------------");
-								// System.out.println(tag.getTagName());
-								// System.out.println(tag.getDescription());
 								switch (tag.getTagName()) {
 									case ORIGINAL_DATE_TAG:
 										LocalDateTime originalDate = DateUtils.stringToLocalDateTime(tag.getDescription());
