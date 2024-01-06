@@ -33,6 +33,7 @@ public class ProcessDirectory implements IProcessDirectory {
 							if (fileOrDirectory.isFile()) {
 								if (PhotoUtils.isPhoto(fileOrDirectory)) {
 									System.out.println("-> photo");
+
 									CompletableFuture<PhotoEntity> photoEntityCF =
 											CompletableFuture.supplyAsync(() -> mapper.FileToPhoto(fileOrDirectory))
 													.thenApply(movePhotoService::move);

@@ -21,6 +21,8 @@ public class IOFiles {
 	}
 
 	public File moveFile(File file, Path targetPath) {
+		// TODO : il faut tester si le fichier de destination existe déjà
+		// si oui, il faut ajouter _dupl_numéro à la fin
 		try {
 			Files.move(Paths.get(file.getPath()), targetPath);
 			return targetPath.toFile();

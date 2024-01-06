@@ -9,7 +9,7 @@ import java.time.format.DateTimeParseException;
 
 public class LocalUtils {
     public static String getExtension(String filename) {
-        return FilenameUtils.getExtension(filename);
+        return FilenameUtils.getExtension(filename).toLowerCase();
     }
 
     public static LocalDateTime extractDateFromName(File file) {

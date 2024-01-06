@@ -50,6 +50,7 @@ public class MetadataFromPhoto {
 				photoMetadata.setGpsCoordinate(gpsCoordinate);
 			}
 		} catch (ImageProcessingException e) {
+			System.out.println("Problème lié aux métadatas");
 			throw new RuntimeException(e);
 		} catch (IOException e) {
 			throw new RuntimeException(e);

@@ -29,8 +29,8 @@ public class FileToPhotoMapper {
         return new PhotoEntity(
                 file,
                 file.getName(),
-                file.getAbsolutePath(),
-                LocalUtils.getExtension(file.getName()).toLowerCase(),
+                file.getParent(),
+                LocalUtils.getExtension(file.getName()),
                 dateCreationPhotoService.getDateCreation(file, metadata),
                 gpsCoordinateToGeocodeMapper.GPSCoordinateToGeocode(metadata.getGpsCoordinate()),
                 fileHashMD5.getFileHashMD5(file)

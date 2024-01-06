@@ -22,7 +22,6 @@ public class PhotOrgaApplication {
 
 		photoToProcess.forEach(photoEntity -> {
 					PhotoEntity photo = photoEntity.join();
-					System.out.println(photo);
 				}
 		);
 	}

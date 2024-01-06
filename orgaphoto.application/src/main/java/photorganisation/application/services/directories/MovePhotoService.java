@@ -21,12 +21,16 @@ public class MovePhotoService {
 	}
 
 	private String getTargetName(PhotoEntity photo) {
+		String targetName;
 		// est-ce que le nom actuel possède une date ?
 		if(LocalUtils.extractDateFromName(photo.file()) != null ) {
 			// on tronque le nom du fichier
-			return DateUtils.localDateTimeToString(photo.dateCreation()) + photo.photoName().substring(15, photo.photoName().length()-15);
+			targetName = DateUtils.localDateTimeToString(photo.dateCreation()) + "_"+ photo.photoName().substring(16);
+		} else {
+			targetName = DateUtils.localDateTimeToString(photo.dateCreation()) + photo.photoName();
 		}
 
-		return DateUtils.localDateTimeToString(photo.dateCreation()) + photo.photoName();
+		// replace : pour gérer notamment les photos qui commencent par _
+		return targetName.replace("__", "_").toLowerCase();
 	}
 }

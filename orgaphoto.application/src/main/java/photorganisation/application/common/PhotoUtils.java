@@ -15,6 +15,6 @@ public class PhotoUtils {
             return false;
         }
 
-		return PHOTO_TYPES.contains(LocalUtils.getExtension(file.getName()).toLowerCase());
+		return PHOTO_TYPES.contains(LocalUtils.getExtension(file.getName()));
 	}
 }
