@@ -8,10 +8,10 @@ import java.util.Arrays;
 
 public class GPSCoordinateToGeocodeMapper {
 	public String GPSCoordinateToGeocode(GPSCoordinate gpsCoordinate) {
-		if(gpsCoordinate != null) {
+		if (gpsCoordinate != null) {
 			Double latitude_dd = gpsDmsDecode(gpsCoordinate.getLatitude());
 			Double longitude_dd = gpsDmsDecode(gpsCoordinate.getLongitude());
-			return latitude_dd + ", "+ longitude_dd;
+			return latitude_dd + ", " + longitude_dd;
 		}
 
 		return "";
@@ -23,25 +23,25 @@ public class GPSCoordinateToGeocodeMapper {
 		Double minutes = null;
 		Double secondes = null;
 
-		if(LocalUtils.getLastCharacter(decoupage[0]) == '°') {
+		if (LocalUtils.getLastCharacter(decoupage[0]) == '°') {
 			degres = Double.valueOf(LocalUtils.getAllCharactersExceptLast(decoupage[0]));
 		}
 
-		if(LocalUtils.getLastCharacter(decoupage[1]) == '\'') {
+		if (LocalUtils.getLastCharacter(decoupage[1]) == '\'') {
 			minutes = Double.valueOf(LocalUtils.getAllCharactersExceptLast(decoupage[1]));
 		}
 
-		if(LocalUtils.getLastCharacter(decoupage[2]) == '"') {
+		if (LocalUtils.getLastCharacter(decoupage[2]) == '"') {
 			secondes = Double.valueOf(LocalUtils.getAllCharactersExceptLast(replaceCommaByPoint(decoupage[2])));
 		}
 
 		String direction = "";
-		if(decoupage.length > 3) {
+		if (decoupage.length > 3) {
 			direction = decoupage[3];
 		}
-		int signe = Arrays.asList("W", "S").contains(direction)?-1:1;
+		int signe = Arrays.asList("W", "S").contains(direction) ? -1 : 1;
 
-		if(degres !=null && minutes != null && secondes != null) {
+		if (degres != null && minutes != null && secondes != null) {
 			return (degres + minutes / 60 + secondes / 3600) * signe;
 		}
 
@@ -49,7 +49,7 @@ public class GPSCoordinateToGeocodeMapper {
 	}
 
 	private String replaceCommaByPoint(String stringToProcess) {
-		if(stringToProcess.contains(",")) {
+		if (stringToProcess.contains(",")) {
 			return stringToProcess.replace(",", ".");
 		}
 

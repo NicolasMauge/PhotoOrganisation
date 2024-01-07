@@ -20,9 +20,10 @@ public class PhotOrgaApplication {
 		List<CompletableFuture<PhotoEntity>> photoToProcess = directoryService
 				.processDirectory("/Users/nicolasmauge/Downloads/test/");
 
-		photoToProcess.forEach(photoEntity -> {
+		/* photoToProcess.forEach(photoEntity -> {
 					PhotoEntity photo = photoEntity.join();
+					System.out.println(photo);
 				}
-		);
+		);*/
 	}
 }

@@ -6,5 +6,5 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public interface IProcessDirectory {
-    List<CompletableFuture<PhotoEntity>> processDirectory(String directory);
+	List<CompletableFuture<PhotoEntity>> processDirectory(String directory);
 }

@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IODirectory {
-    public IODirectory() {
-    }
+	public IODirectory() {
+	}
 
-    public DirectoryEntity getPhotosInDirectory(String directory) {
-        File directoryFile = new File(directory);
+	public DirectoryEntity getPhotosInDirectory(String directory) {
+		File directoryFile = new File(directory);
 
-        File[] fileList = directoryFile.listFiles();
+		File[] fileList = directoryFile.listFiles();
 
-        return new DirectoryEntity(
-                directoryFile,
-                directory,
-                fileList != null?List.of(fileList):new ArrayList<>());
-    }
+		return new DirectoryEntity(
+				directoryFile,
+				directory,
+				fileList != null ? List.of(fileList) : new ArrayList<>());
+	}
 }

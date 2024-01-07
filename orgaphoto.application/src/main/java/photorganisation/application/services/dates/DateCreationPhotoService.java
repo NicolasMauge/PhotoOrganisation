@@ -20,10 +20,11 @@ public class DateCreationPhotoService implements IDateCreationPhotoService {
 		LocalDateTime localDateTime = metadata.getCreationDate();
 		LocalDateTime localDateTimeFromFilename = LocalUtils.extractDateFromName(file);
 
+		// TODO : il faudra définir le cas des vidéos : est-ce qu'il existe une photo heic pour la vidéo
 		if (localDateTime != null) {
 			// les metadata suffisent
-			if(localDateTimeFromFilename != null && localDateTimeFromFilename.until(localDateTime, ChronoUnit.SECONDS) > 0) {
-				System.out.println("Valeurs différentes :" );
+			if (localDateTimeFromFilename != null && localDateTimeFromFilename.until(localDateTime, ChronoUnit.SECONDS) > 0) {
+				System.out.println("Valeurs différentes :");
 				System.out.println("> " + localDateTime);
 				System.out.println("> " + localDateTimeFromFilename + "<");
 			}

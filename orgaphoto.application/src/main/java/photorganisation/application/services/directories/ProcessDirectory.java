@@ -27,7 +27,7 @@ public class ProcessDirectory implements IProcessDirectory {
 		List<CompletableFuture<PhotoEntity>> photoToProcess = new ArrayList<>();
 		List<DirectoryEntity> directoriesToProcess = new ArrayList<>();
 
-		System.out.println("Répertoire : "+directory);
+		System.out.println("Répertoire : " + directory);
 		directoryEntity.listePhotosInDirectory()
 				.forEach(fileOrDirectory -> {
 							if (fileOrDirectory.isFile()) {
@@ -46,7 +46,10 @@ public class ProcessDirectory implements IProcessDirectory {
 						}
 				);
 
-
+		// TODO : trouver vidéo + heic ensemble
+		/* photoToProcess.stream()
+				.map(photoCF -> photoCF.thenApply(movePhotoService::move))
+				.collect(Collectors.toList()); */
 
 		directoriesToProcess.forEach(directoryToProcess ->
 				photoToProcess.addAll(processDirectory(directoryToProcess.directoryPath())));
